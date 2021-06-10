@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileCourse.AddTerm"
+             Title="Term View">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Term Name:"/>
+            <Entry Placeholder="Spring 2021:" x:Name="termName"/>
+            <Label Text="Start Date:"/>
+            <DatePicker x:Name="termStart"/>
+            <Label Text="End Date:"/>
+            <DatePicker x:Name="termEnd"/>
+            <Label Text="Turn On Notifications:"/>
+            <CheckBox x:Name="termAlert"/>
+            <Button Text="Save"
+                    x:Name="saveButton"
+                    Clicked="SaveButton_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

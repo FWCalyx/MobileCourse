@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileCourse.ViewTerm"
+            Title="Term View">
+    
+  <!--Pages can be added as references or inline-->
+    <ContentPage Title="Courses">
+        <ContentPage.ToolbarItems>
+            <ToolbarItem Text="New Course"
+                     Clicked="NewCourse_Clicked"
+                         Order="Secondary"/>
+            <ToolbarItem Text="Delete Term"
+                         Clicked="DeleteTerm_Clicked"
+                         Order="Secondary"/>
+
+        </ContentPage.ToolbarItems>
+        <StackLayout>
+            <Label Text="" x:Name="TitleText" HorizontalTextAlignment="Center" FontSize="Large" Margin="20"/>
+            <BoxView BackgroundColor="#ffd432"/>
+            <ListView x:Name="CoursesListView"
+                      ItemSelected="CoursesListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}"
+                              Detail="{Binding DateString}"/>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Details">
+        <StackLayout>
+            <Label Text="Term Name:"/>
+            <Entry Text="" x:Name="termName"/>
+            <Label Text="Start Date:"/>
+            <DatePicker x:Name="termStart"/>
+            <Label Text="End Date:"/>
+            <DatePicker x:Name="termEnd"/>
+            <Label Text="Turn On Notifications:"/>
+            <CheckBox x:Name="termAlert"/>
+            <Button Text="Update"
+                    x:Name="updateButton"
+                    Clicked="UpdateButton_Clicked"/>
+        </StackLayout>
+    </ContentPage>
+</TabbedPage>

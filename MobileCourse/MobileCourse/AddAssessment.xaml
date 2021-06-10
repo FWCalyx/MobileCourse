@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileCourse.ViewAssessment"
+             Title="Assessment View">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Delete"
+                     x:Name="DeleteToolbarItem"
+                     Clicked="DeleteAssessment_Clicked"
+                     Order="Secondary"/>
+        <ToolbarItem Text="Update"
+                     x:Name="UpdateToolbarItem"
+                     Clicked="UpdateAssessment_Clicked"
+                     Order="Secondary"/>
+        <ToolbarItem Text="Save"
+                     x:Name="SaveToolbarItem"
+                     Clicked="SaveAssessment_Clicked"
+                     Order="Secondary"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        
+        <StackLayout>
+            <Label Text="Assessment Name"/>
+            <Entry Placeholder="LAP1 Mobile App Dev with C#"
+                   x:Name="assessName"/>
+            <Picker x:Name="typePicker"
+                        Title="Select Assessment Type">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Objective Assessment</x:String>
+                        <x:String>Performance Assessment</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Label Text="Start Date:"/>
+            <DatePicker x:Name="assessStart"/>
+            <Label Text="End Date:"/>
+            <DatePicker x:Name="assessEnd"/>
+            <Label Text="Enable Notifications:"/>
+            <CheckBox x:Name="assessAlert"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

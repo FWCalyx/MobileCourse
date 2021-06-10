@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileCourse.ViewCourse"
+            Title="Course View">
+  <!--Pages can be added as references or inline-->
+    <ContentPage Title="Details">
+        <ContentPage.ToolbarItems>
+            <ToolbarItem Text="Delete Course"
+                         x:Name="DeleteButton"
+                         Clicked="DeleteCourse_Clicked"
+                         Order="Secondary"/>
+            <ToolbarItem Text="Save Course"
+                         x:Name="SaveButton"
+                         Clicked="SaveCourse_Clicked"
+                         Order="Secondary"/>
+            <ToolbarItem Text="Update Course"
+                         x:Name="UpdateButton"
+                         Clicked="UpdateCourse_Clicked"
+                         Order="Secondary"/>
+        </ContentPage.ToolbarItems>
+        <StackLayout>
+            <Label Text="Course Name:"/>
+            <Entry Placeholder="C101 Introduction to Chemistry"
+                   x:Name="courseName"
+                   Keyboard="Plain"/>
+            <Picker x:Name="statusPicker"
+                        Title="Select Status">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Completed</x:String>
+                        <x:String>In Progress</x:String>
+                        <x:String>Dropped</x:String>
+                        <x:String>Plan to Take</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Label Text="Start Date"/>
+            <DatePicker x:Name="courseStart"/>
+            <Label Text="End Date"/>
+            <DatePicker x:Name="courseEnd"/>
+            <StackLayout Orientation="Horizontal">
+            <Label Text="Notes:"/>
+                <Button Text="Share Notes" FontSize="Small"
+                        x:Name="shareButton"
+                        Clicked="ShareButton_Clicked"/>
+            </StackLayout>
+            <Editor Text="" x:Name="courseNotes" MaxLength="300" HeightRequest="150" Keyboard="Text"/>
+            <Label Text="Enable Notifications"/>
+            <CheckBox x:Name="courseAlert"/>
+
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Assessments">
+        <ContentPage.ToolbarItems>
+            <ToolbarItem Text="Add Assessment"
+                         x:Name="addAssessButton"
+                         Clicked="AddAssessment_Clicked"/>
+        </ContentPage.ToolbarItems>
+        <StackLayout>
+            <Label Text="Assessments Listed"/>
+            <ListView x:Name="AssessmentsListView"
+                      ItemSelected="AssessmentsListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}"
+                              Detail="{Binding Type}"/>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Instructor">
+        <ContentPage.ToolbarItems>
+            <ToolbarItem Text="Add Instructor"
+                         Clicked="AddInstructor_Clicked"/>
+        </ContentPage.ToolbarItems>
+        <StackLayout>
+            <Label Text="Instructors Listed"/>
+            <ListView x:Name="InstructorsListView"
+                      ItemSelected="InstructorsListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}"
+                              Detail="{Binding Email}"/>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage> 
+</TabbedPage>

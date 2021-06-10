@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileCourse.MainPage"
+             Title="CourseKeeper" >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="New Term"
+                     Clicked="NewTerm_Clicked"
+                     Order="Secondary"/>
+
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <Label Text="Terms" FontSize="Large" HorizontalTextAlignment="Center" Margin="20"/>
+        <BoxView BackgroundColor="#ffd432"/>
+        <ListView x:Name="TermListView"
+                  ItemSelected="TermListView_ItemSelected">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell 
+                        Text="{Binding Name}" 
+                        TextColor="Black"
+                        Detail="{Binding DateString}"
+                        DetailColor="#919191"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Close" VerticalOptions="End" x:Name="CloseButton" Clicked="CloseButton_Clicked"/>
+    </StackLayout>
+
+</ContentPage>
